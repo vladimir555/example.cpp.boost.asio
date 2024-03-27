@@ -19,6 +19,28 @@
 и частное двух числовых полей. Подсчитывает количество записей и возвращает его клиенту.
 
 Сервер использует тот же файл протокола, что и клиенты.
-В случае возникновения ошибок протокол должен содержать достаточную для понимания
-причины информацию об ошибках
-как на стороне клиента, так и сервера.
+В случае возникновения ошибок протокол должен содержать достаточную для понимания причины информацию об ошибках как на стороне клиента, так и сервера.
+
+
+Test.
+The problem must be solved in C++ for Linux OS.
+When developing, use only the standard C++ library, boost and POSIX API.
+
+Input data: CSV file with three columns: date/time in the format “dd.mm.yyyy hh:mm:ss”
+and two columns with fractions; dot as decimal separator.
+All three columns are required.
+
+The solution consists of server and client parts running on the same machine.
+The server runs continuously, the client is launched to process one file.
+The file name is passed to the client on the command line.
+The client connects to the server via TCP and transmits the data read from the file.
+If successful, receives the number of records in the source file from the server and saves
+to the protocol file.
+
+Let's allow several client instances to be launched simultaneously with different files. The server can accept
+multiple client connections simultaneously.
+For each connection, finds a record with the maximum date and writes the corresponding date to the protocol
+and the quotient of two numeric fields. Counts the number of records and returns it to the client.
+
+The server uses the same log file as the clients.
+In case of errors, the protocol must contain sufficient information for understanding reasons error information both on the client and server side.
